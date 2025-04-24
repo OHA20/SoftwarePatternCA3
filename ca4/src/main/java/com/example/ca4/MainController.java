@@ -13,4 +13,15 @@ public class MainController {
     {
         return "index";
     }
+    
+    @GetMapping("/home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/cart")
+    public String cart() {
+        return "cart";
+    }
+
 }
