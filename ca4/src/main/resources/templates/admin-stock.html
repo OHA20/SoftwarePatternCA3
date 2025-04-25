@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h2>Stock Management</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Stock Level</th>
+            <th>Update Stock</th>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.stockLevel}"></td>
+            <td>
+                <form th:action="@{/admin/stock/update}" method="post">
+                    <input type="hidden" name="bookId" th:value="${book.id}"/>
+                    <input type="number" name="newStock" min="0" required/>
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

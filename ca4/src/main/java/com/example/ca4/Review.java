@@ -9,17 +9,17 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "cart")
-public class Cart {
+@Table(name = "reviews")
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String comment;
+    private int rating;
+    
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
-
-    private int quantity;
 
 	public Long getId() {
 		return id;
@@ -29,6 +29,22 @@ public class Cart {
 		this.id = id;
 	}
 
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
 	public Book getBook() {
 		return book;
 	}
@@ -36,12 +52,4 @@ public class Cart {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}   
 }

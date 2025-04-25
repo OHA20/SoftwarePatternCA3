@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h2>Reviews for Book ID: <span th:text="${bookId}"></span></h2>
+    <table>
+        <tr>
+            <th>Comment</th>
+            <th>Rating</th>
+        </tr>
+        <tr th:each="review : ${reviews}">
+            <td th:text="${review.comment}"></td>
+            <td th:text="${review.rating}"></td>
+        </tr>
+    </table>
+    <a href="/books">Back to Books</a>
+</body>
+</html>
